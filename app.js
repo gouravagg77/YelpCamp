@@ -9,7 +9,8 @@ var express = require("express"),
     Comment = require("./models/comments"),
     User = require("./models/user"),
     methodOverride = require("method-override"),
-    flash = require("connect-flash");
+    flash = require("connect-flash"),
+    moment = require("moment");
 
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = moment;
 
 app.use(require("express-session")({
     secret: "Campgrounds database",
