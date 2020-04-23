@@ -18,7 +18,14 @@ var commentRoutes = require("./routes/comments"),
 
 //seedDB();
 
-mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://gouravaggarwal:Plmnko098@yelpcamp-d5nik.mongodb.net/test?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log("Connected to db");
+}).catch(err => {
+    console.log('ERROR: ', err.message);
+});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
