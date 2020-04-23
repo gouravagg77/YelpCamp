@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render("campgrounds/index", { campgrounds: allcampgrounds });
+            res.render("campgrounds/index", { campgrounds: allcampgrounds, page: "campgrounds" });
         }
     });
     //s.render("campgrounds",{campgrounds: campgrounds});
@@ -27,7 +27,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
     // add to campgrounds array
     //route to campgrounds page
     var name = req.body.name;
-    var url = req.body.image;
+    var image = req.body.image;
     var desc = req.body.desc;
     var price = req.body.price;
     var author = {
@@ -37,7 +37,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
     var newCampground = {
         name: name,
         price: price,
-        image: url,
+        image: image,
         description: desc,
         author: author
     };
