@@ -18,7 +18,7 @@ var commentRoutes = require("./routes/comments"),
 
 //seedDB();
 
-mongoose.connect("mongodb+srv://gouravaggarwal:Plmnko098@yelpcamp-d5nik.mongodb.net/test?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://gouravaggarwal:*******@yelpcamp-d5nik.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
